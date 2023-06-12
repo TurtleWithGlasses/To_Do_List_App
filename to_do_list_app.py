@@ -11,7 +11,7 @@ while True:
         with open(to_do_file, "r") as file:
             todos = file.readlines()
 
-        todos.append(todo)
+        todos.append(todo + "\n")
 
         with open(to_do_file, "w") as file:
             file.writelines(todos)
