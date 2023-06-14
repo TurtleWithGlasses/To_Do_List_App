@@ -1,11 +1,13 @@
 to_do_file = "C:\\Users\\mhmts\\PycharmProjects\\To_Do_List_App\\todo.txt"
 
-def get_todos(to_do_file):
+def get_todos(filepath=to_do_file):
+    # Reads text file and returns the list of to-do items
     with open(to_do_file, "r") as file:
         todos_local = file.readlines()
     return todos_local
 
-def write_todos(to_do_file, todos):
+def write_todos(todos, filepath=to_do_file):
+    # Writes to-do items list in the text file
     with open(to_do_file, "w") as file:
         file.writelines(todos)
 
@@ -17,15 +19,15 @@ while True:
     if user_action.startswith("add"):
         todo = user_action[4:]
 
-        todos = get_todos(to_do_file)
+        todos = get_todos()
 
         todos.append(todo + "\n")
 
-        write_todos(to_do_file, todos)
+        write_todos(todos)
 
     elif user_action.startswith("show"):
 
-        todos = get_todos(to_do_file)
+        todos = get_todos()
 
         for index, item in enumerate(todos):
             item = item.strip("\n")
@@ -36,12 +38,12 @@ while True:
             number = int(user_action[5:])
             number = number - 1
 
-            todos = get_todos(to_do_file)
+            todos = get_todos()
 
             new_todo = input("Enter new todo: ")
             todos[number] = new_todo + "\n"
 
-            write_todos(to_do_file, todos)
+            write_todos(todos)
 
         except ValueError:
             print("Your command is not valid")
@@ -51,13 +53,13 @@ while True:
         try:
             number = int(user_action[9:])
 
-            todos = get_todos(to_do_file)
+            todos = get_todos()
 
             index = number-1
             todo_to_remove = todos[index].strip("\n")
             todos.pop(index)
 
-            write_todos(to_do_file, todos)
+            write_todos(todos)
 
             print(f"Todo {todo_to_remove} is completed and removed from the list..")
 
