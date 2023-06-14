@@ -1,7 +1,10 @@
 from to_do_functions import get_todos
 from to_do_functions import write_todos
+import time
 
 
+now = time.strftime("%b %d, %Y %H:%M:%S")
+print("It is", now)
 while True:
     user_action = input("Type add, show, edit, complete or exit: ")
     user_action = user_action.strip()
@@ -63,4 +66,5 @@ while True:
     else:
         print("Command is not valid..")
 
+print("You are exiting the app at: ", now)
 print("Bye!")
