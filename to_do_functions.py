@@ -1,4 +1,4 @@
-to_do_file = "C:\\Users\\mhmts\\PycharmProjects\\To_Do_List_App\\todo.txt"
+to_do_file = "todo.txt"
 
 def get_todos(filepath=to_do_file):
     # Reads text file and returns the list of to-do items
